@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+#数据库查询操作
 #导入包
 import pymysql
 if __name__ == '__main__':
