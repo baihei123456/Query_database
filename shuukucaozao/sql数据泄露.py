@@ -13,27 +13,13 @@ if __name__ == '__main__':
                          charset="utf8")
     #获取游标，目的时执行sql语句
     cursor=conn.cursor()
-
     #准备sql
-    # sql="INSERT INTO `test`.`student` (`id`, `name`, `subject`, `score`) VALUES ('218', '测试', 'B', '89');"
+    sql1="SELECT * from student where name= '%s';" % "黄蓉' or 1 = 1 or '"
     # sql="UPDATE `test`.`student` SET `name`='dd';"
-    # 当对数据进行增删改时执行完语句后需要commit
-    #删除操作
-    sql="delete from student where id in(100,115,116,117,118);"
 
     #执行sql语句
-    try:
-        cursor.execute(sql)
-        conn.commit()
-    except Exception as e:
-        conn.rollback()#回滚sql
+    cursor.execute(sql)
     # cursor.execute(sql1)
-    finally:
-        # 关闭游标
-        cursor.close()
-        # 关闭连接
-        conn.close()
-
 
     #获取查询的结果
     # result=cursor.fetchall()
@@ -41,3 +27,7 @@ if __name__ == '__main__':
     #     print(row)
 
     #print(result)
+    #关闭游标
+    cursor.close()
+    #关闭连接
+    conn.close()
