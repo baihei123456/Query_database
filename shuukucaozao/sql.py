@@ -13,12 +13,19 @@ if __name__ == '__main__':
     #获取游标，目的时执行sql语句
     cursor=conn.cursor()
     #准备sql
-    sql="SELECT * from student;"
+    sql1="SELECT * from student;"
+    sql="UPDATE `test`.`student` SET `name`='dd';"
+
     #执行sql语句
     cursor.execute(sql)
+    cursor.execute(sql1)
+
     #获取查询的结果
     result=cursor.fetchall()
-    print(result)
+    for row in result:
+        print(row)
+
+    #print(result)
     #关闭游标
     cursor.close()
     #关闭连接
